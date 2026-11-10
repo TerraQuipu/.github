@@ -32,8 +32,8 @@ graph TD
 
 1. **Capa Macro (NASA SMAP / GPM - 9 a 10 km):** Detección de la anomalía climática regional (ej. 30% menos precipitación comparada con la climatología histórica de 20 años).
 2. **Capa Meso (NASA SRTM DEM 30m + HLS/MODIS 30m/250m):** Ponderación física mediante altitud, pendiente y orientación de ladera. Una ladera empinada a 3,800 m drena y pierde humedad mucho más rápido que un fondo de valle a 3,200 m.
-3. **Capa Micro (Nodo IoT de Validación en Campo - ESP32 / LoRa):** Estación de calibración local que corrige el sesgo satelital sobre el terreno.
-   * *Plan de Contingencia para el Demo:* Si la conectividad física falla durante la presentación, se activa el script `mock_telemetry.py` que inyecta telemetría sintética calibrada con la misma estructura JSON.
+3. **Capa Micro (Telemetría de Campo / Emulador Arduino - 100% Software):**  
+   Terraquipu es una plataforma **100% de software**. Para la validación en tierra (*ground-truthing*), el sistema integra un pipeline de ingesta compatible con microcontroladores Arduino/ESP32 y estaciones edáficas. Durante el MVP, los datos de sensores de humedad capacitiva y temperatura de suelo se alimentan a través de emuladores de telemetría y datasets de campo calibrados, permitiendo probar la corrección del sesgo satelital de forma ágil y sin dependencias de circuitos físicos en el evento.
 
 ---
 
@@ -81,7 +81,7 @@ flowchart LR
 | :--- | :--- | :--- | :--- |
 | **Ing. Ambiental** | Elaboración de la matriz agronómica andina, fenología, requerimientos hídricos, tolerancia edáfica y reglas de rotación según manuales INIA/SENAMHI. | Archivo `crop_matrix.json` validado con umbrales exactos por cultivo y fase de desarrollo. | Entrega a: **Ciencia de Datos** y **Sistemas 1**. |
 | **Ciencia de Datos** | Extracción y procesamiento de datos NASA (POWER, SMAP, SRTM), integración de SoilGrids y programación del algoritmo determinista de scoring multicriterio. | Pipeline en Python (`scoring_engine.py`) que consume coordenadas y devuelve `territorial_diagnosis.json`. | Recibe de: **Ing. Ambiental**. Entrega a: **Sistemas 1**. |
-| **Ing. Electrónico** | Diseño del circuito IoT (ESP32 con sensor capacitivo de humedad v1.2 y DS18B20 de temperatura), firmware y script de respaldo para telemetría. | Prototipo físico transmitiendo y script `mock_telemetry.py` publicando `iot_telemetry.json` a la API. | Entrega a: **Sistemas 1**. |
+| **Ing. Software IoT / Telemetría** | Desarrollo del emulador de telemetría de sensores Arduino/ESP32, datasets sintéticos de calibración edáfica y pipeline de streaming de datos de campo hacia la API (100% Software). | Generador y emulador de telemetría (`mock_telemetry.py`) publicando datos calibrados de suelo (`iot_telemetry.json`) a la API. | Entrega a: **Sistemas 1**. |
 | **Sistemas 1 (Geo-Backend)** | Base de datos geoespacial (PostgreSQL/PostGIS), arquitectura de endpoints REST en FastAPI/Node, ingesta de telemetría y ejecución del motor multicriterio. | API desplegada con endpoints `/api/v1/diagnose`, `/api/v1/recommend` y `/api/v1/telemetry`. | Conecta a: **Ciencia de Datos**, **Electrónica** y **Frontend**. |
 | **Sistemas 2 (Frontend GIS)** | Dashboard interactivo con mapa Mapbox/Leaflet (capas DEM, precipitación, anomalía), selector de parcelas y visualizador temporal de rotaciones. | Aplicación web fluida que en 3 clics selecciona parcela, grafica anomalías y visualiza el plan de rotación. | Consume endpoints de: **Sistemas 1**. |
 | **Sistemas 3 (IA / RAG & Pitch)** | Indexación vectorial de PDFs técnicos (INIA/SENAMHI), agente RAG explicativo, estructura de presentación/pitch y producción del video demo (30s). | Módulo RAG que cita artículos del INIA en las recomendaciones y diapositivas finales del pitch. | Se integra con: **Sistemas 1** y apoya en la narrativa global. |
@@ -95,7 +95,7 @@ Para evitar conflictos de merge en Git durante el sprint, la organización debe 
 1. **`terraquipu-web` (Frontend):** Next.js / React, Tailwind CSS, Mapbox GL / Leaflet, visualizador de línea de tiempo agronómica.
 2. **`terraquipu-api` (Backend & RAG):** FastAPI / Express con PostGIS, endpoints de telemetría IoT, orquestación del scoring y pipeline RAG (LangChain / LlamaIndex / Gemini).
 3. **`terraquipu-data` (Data Science & Agronomía):** Notebooks de Jupyter, scripts de extracción de NASA POWER / SoilGrids, `crop_matrix.json` y el core del algoritmo matemático.
-4. **`terraquipu-iot` (Hardware & Simulación):** Firmware en C++/MicroPython para ESP32, diagrama de conexiones en Wokwi/Fritzing y `mock_telemetry.py` para pruebas locales.
+4. **`terraquipu-iot` (Emulador Arduino & Telemetría - 100% Software):** Generadores de telemetría, datasets de prueba de sensores de suelo (JSON/CSV), simulador de streaming hacia la API y referencia de integración para microcontroladores Arduino/ESP32.
 5. **`.github` (Perfil de Organización):** Contiene `profile/README.md` con el diagrama de arquitectura en 3 capas, video demo embebido y la presentación del equipo.
 
 ---

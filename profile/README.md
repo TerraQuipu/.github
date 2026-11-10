@@ -23,7 +23,7 @@ El sistema integra:
 | :--- | :--- | :--- | :--- |
 | **Ing. Ambiental** | Modelado Agronómico y Salud del Suelo | [`terraquipu-data`](https://github.com/TerraQuipu/terraquipu-data) | Matriz agronómica andina (`crop_matrix.json`) con umbrales fenológicos y reglas de rotación. |
 | **Ciencia de Datos** | Pipelines Satelitales y Scoring Multicriterio | [`terraquipu-data`](https://github.com/TerraQuipu/terraquipu-data) | Pipeline de extracción NASA POWER / SoilGrids y algoritmo determinista de idoneidad. |
-| **Ing. Electrónico** | Hardware IoT y Ground-Truthing | [`terraquipu-iot`](https://github.com/TerraQuipu/terraquipu-iot) | Firmware ESP32 de telemetría in-situ y simulador de contingencia (`mock_telemetry.py`). |
+| **Ing. Software IoT / Telemetría** | Emulación de Sensores Arduino y Telemetría de Campo | [`terraquipu-iot`](https://github.com/TerraQuipu/terraquipu-iot) | Emulador de datos de sensores Arduino (`mock_telemetry.py`) y streaming de telemetría de suelo (100% Software). |
 | **Sistemas 1** | Geo-Backend & Base de Datos Espacial | [`terraquipu-api`](https://github.com/TerraQuipu/terraquipu-api) | API REST en FastAPI con PostGIS, ingesta de telemetría y endpoints de diagnóstico territorial. |
 | **Sistemas 2** (`@alinafernanda77-ux`) | Frontend GIS & Experiencia de Usuario (UX) | [`terraquipu-web`](https://github.com/TerraQuipu/terraquipu-web) | Mapa interactivo 2D/3D, selector de parcelas y visualizador temporal de secuencias de rotación. |
 | **Sistemas 3** | IA Explicativa (RAG) & Pitch Lead | [`terraquipu-api`](https://github.com/TerraQuipu/terraquipu-api) | Agente RAG que cita manuales técnicos oficiales de INIA/SENAMHI y estructura del pitch/video. |
@@ -76,5 +76,5 @@ graph TD
 * [**`terraquipu-web`**](https://github.com/TerraQuipu/terraquipu-web): Dashboard interactivo en Next.js/React con mapas geoespaciales y visualizador de rotación multianual.
 * [**`terraquipu-api`**](https://github.com/TerraQuipu/terraquipu-api): API geoespacial con FastAPI, base de datos PostGIS, motor de cálculo determinista y agente RAG.
 * [**`terraquipu-data`**](https://github.com/TerraQuipu/terraquipu-data): Scripts de extracción satelital (NASA POWER, SoilGrids) y matriz agronómica validada (`crop_matrix.json`).
-* [**`terraquipu-iot`**](https://github.com/TerraQuipu/terraquipu-iot): Firmware ESP32 para sensores capacitivos y script de contingencia `mock_telemetry.py`.
+* [**`terraquipu-iot`**](https://github.com/TerraQuipu/terraquipu-iot): Emulador de telemetría de sensores Arduino/ESP32 y streaming de datos edáficos en tiempo real (100% Software).
 * [**`.github`**](https://github.com/TerraQuipu/.github): Índice maestro, especificación técnica de contratos JSON y perfil institucional.

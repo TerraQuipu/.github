@@ -34,24 +34,39 @@ El sistema integra:
 
 ```mermaid
 graph TD
-    subgraph Capa Macro (NASA Satelital)
-        M1[NASA POWER / GPM - Precipitación]
-        M2[NASA SMAP - Humedad Regional]
+    subgraph Macro ["Capa Macro (NASA Satelital)"]
+        M1["NASA POWER / GPM - Precipitación"]
+        M2["NASA SMAP - Humedad Regional"]
     end
 
-    subgraph Capa Meso (Topografía & Suelo)
-        S1[NASA SRTM DEM 30m - Pendiente y Altitud]
-        S2[ISRIC SoilGrids 250m - pH, SOC, N]
+    subgraph Meso ["Capa Meso (Topografía y Suelo)"]
+        S1["NASA SRTM DEM 30m - Pendiente y Altitud"]
+        S2["ISRIC SoilGrids 250m - pH, SOC, N"]
     end
 
-    subgraph Capa Micro (Terreno)
-        IOT[Nodo IoT ESP32 - Ground Truth]
+    subgraph Micro ["Capa Micro (Terreno)"]
+        IOT["Nodo IoT ESP32 - Ground Truth"]
     end
 
-    M1 & M2 & S1 & S2 & IOT --> API[Terraquipu API - FastAPI + PostGIS]
-    DATA[Terraquipu Data - Matriz INIA/SENAMHI] --> API
-    API --> RAG[Capa Explicativa RAG - Embeddings INIA]
-    API & RAG --> WEB[Terraquipu Web - Dashboard GIS & Rotación]
+    subgraph Core ["Núcleo Terraquipu"]
+        API["Terraquipu API (FastAPI + PostGIS)"]
+        DATA["Terraquipu Data (Matriz INIA/SENAMHI)"]
+        RAG["Capa Explicativa RAG (Embeddings INIA)"]
+    end
+
+    subgraph App ["Presentación"]
+        WEB["Terraquipu Web (Dashboard GIS & Rotación)"]
+    end
+
+    M1 --> API
+    M2 --> API
+    S1 --> API
+    S2 --> API
+    IOT --> API
+    DATA --> API
+    API --> RAG
+    API --> WEB
+    RAG --> WEB
 ```
 
 ---

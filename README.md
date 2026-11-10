@@ -43,22 +43,22 @@ Para garantizar que el sistema nunca invente ni alucine recomendaciones agronóm
 
 ```mermaid
 flowchart LR
-    subgraph Entrada
-        A[Datos Parcela / Coordenadas]
-        B[Anomalías NASA + Suelo]
+    subgraph SubEntrada ["Entrada"]
+        A["Datos Parcela / Coordenadas"]
+        B["Anomalías NASA + Suelo"]
     end
 
-    subgraph Motor Determinista
-        C[Matriz Agronómica INIA/SENAMHI]
-        D[Algoritmo Multicriterio de Compatibilidad]
+    subgraph SubMotor ["Motor Determinista"]
+        C["Matriz Agronómica INIA/SENAMHI"]
+        D["Algoritmo Multicriterio de Compatibilidad"]
     end
 
-    subgraph Capa Explicativa
-        E[Agente RAG con Embeddings de Manuales INIA]
+    subgraph SubExplicativa ["Capa Explicativa"]
+        E["Agente RAG con Embeddings de Manuales INIA"]
     end
 
-    subgraph Salida
-        F[Top 3 Secuencias de Rotación con Cita Técnica]
+    subgraph SubSalida ["Salida"]
+        F["Top 3 Secuencias de Rotación con Cita Técnica"]
     end
 
     A --> D

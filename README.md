@@ -3,6 +3,11 @@
 > **Ecosistema de Inteligencia Territorial y Regeneración Edáfica en los Andes**  
 > *Desarrollado para el NASA Space Apps Challenge / Sprint de 48 Horas*
 
+[![Live Demo](https://img.shields.io/badge/Demo%20en%20Vivo-GitHub%20Pages-22c55e?style=for-the-badge&logo=github)](https://terraquipu.github.io/terraquipu-web/)
+[![Status](https://img.shields.io/badge/Producci%C3%B3n-Online%20(200%20OK)-0284c7?style=for-the-badge)](https://terraquipu.github.io/terraquipu-web/)
+
+👉 **Acceso directo a la plataforma en producción:** [https://terraquipu.github.io/terraquipu-web/](https://terraquipu.github.io/terraquipu-web/)
+
 ---
 
 ## 1. Núcleo del Reto: Salud del Suelo y Rotación Regenerativa

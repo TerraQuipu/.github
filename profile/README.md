@@ -3,6 +3,11 @@
 > **Sistema de Inteligencia Territorial y Regeneración Edáfica en los Andes**  
 > *Desarrollado para el NASA Space Apps Challenge*
 
+[![Live Demo](https://img.shields.io/badge/Demo%20en%20Vivo-GitHub%20Pages-22c55e?style=for-the-badge&logo=github)](https://terraquipu.github.io/terraquipu-web/)
+[![Status](https://img.shields.io/badge/Producci%C3%B3n-Online%20(200%20OK)-0284c7?style=for-the-badge)](https://terraquipu.github.io/terraquipu-web/)
+
+👉 **Acceso directo a la plataforma en producción:** [https://terraquipu.github.io/terraquipu-web/](https://terraquipu.github.io/terraquipu-web/)
+
 ---
 
 ## 🌎 Visión General
@@ -73,7 +78,7 @@ graph TD
 
 ## 📦 Repositorios de la Organización
 
-* [**`terraquipu-web`**](https://github.com/TerraQuipu/terraquipu-web): Dashboard interactivo en Next.js/React con mapas geoespaciales y visualizador de rotación multianual.
+* [**`terraquipu-web`**](https://github.com/TerraQuipu/terraquipu-web) — [🌐 **Ver Demo en Vivo (Producción)**](https://terraquipu.github.io/terraquipu-web/): Dashboard interactivo en Next.js/React con mapas geoespaciales y visualizador de rotación multianual.
 * [**`terraquipu-api`**](https://github.com/TerraQuipu/terraquipu-api): API geoespacial con FastAPI, base de datos PostGIS, motor de cálculo determinista y agente RAG.
 * [**`terraquipu-data`**](https://github.com/TerraQuipu/terraquipu-data): Scripts de extracción satelital (NASA POWER, SoilGrids) y matriz agronómica validada (`crop_matrix.json`).
 * [**`terraquipu-iot`**](https://github.com/TerraQuipu/terraquipu-iot): Emulador de telemetría de sensores Arduino/ESP32 y streaming de datos edáficos en tiempo real (100% Software).

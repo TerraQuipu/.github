@@ -78,7 +78,7 @@ graph TD
 
 ## 📦 Repositorios de la Organización
 
-* [**`terraquipu-web`**](https://github.com/TerraQuipu/terraquipu-web) — [🌐 **Ver Demo en Vivo (Producción)**](https://terraquipu.github.io/terraquipu-web/): Dashboard interactivo en Next.js/React con mapas geoespaciales y visualizador de rotación multianual.
+* [**`terraquipu-web`**](https://github.com/TerraQuipu/terraquipu-web) — [🌐 **Landing Page**](https://terraquipu.github.io/terraquipu-web/) | [🛰️ **Visor GIS Satelital**](https://terraquipu.github.io/terraquipu-web/app.html): Frontend interactivo, captación de leads multi-perfil y visualizador de rotación multianual.
 * [**`terraquipu-api`**](https://github.com/TerraQuipu/terraquipu-api): API geoespacial con FastAPI, base de datos PostGIS, motor de cálculo determinista y agente RAG.
 * [**`terraquipu-data`**](https://github.com/TerraQuipu/terraquipu-data): Scripts de extracción satelital (NASA POWER, SoilGrids) y matriz agronómica validada (`crop_matrix.json`).
 * [**`terraquipu-iot`**](https://github.com/TerraQuipu/terraquipu-iot): Emulador de telemetría de sensores Arduino/ESP32 y streaming de datos edáficos en tiempo real (100% Software).
